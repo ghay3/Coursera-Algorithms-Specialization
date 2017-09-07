@@ -1,6 +1,7 @@
 import random
 
 
+# https://en.wikipedia.org/wiki/Karatsuba_algorithm
 def karatsuba(num1, num2):
     # deal with negative numbers
     if num1 < 0:
