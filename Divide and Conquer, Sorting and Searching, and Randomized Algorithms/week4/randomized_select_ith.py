@@ -39,7 +39,6 @@ def random_as_pivot(nums, low, high):
 
 
 if __name__ == '__main__':
-    select_ith([0,1, 2, 3, 4], 3)
     nums = []
     for num in range(100):
         nums.append(num)
