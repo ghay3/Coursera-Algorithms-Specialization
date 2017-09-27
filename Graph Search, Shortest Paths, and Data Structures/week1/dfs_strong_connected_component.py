@@ -7,7 +7,7 @@ def strong_connected_component(graph):
     for v in order:
         if not visited[v]:
             cnt += 1
-            dfs(v, graph, visited, lambda v: v2scc.setdefault(v, cnt))
+            dfs2(v, graph, visited, lambda v: v2scc.setdefault(v, cnt))
 
     return v2scc, cnt
 
@@ -20,13 +20,26 @@ def dfs(v, graph, visited, post_func):
     post_func(v)
 
 
+def dfs2(source, graph, visited, post_func):
+    stack = [source]
+    while stack:
+        for w in graph[stack[-1]]:
+            if not visited[w]:
+                visited[w] = True
+                stack.append(w)
+                break
+        else:
+            v = stack.pop()
+            post_func(v)
+
+
 def get_dfs_reverse_post_order(graph):
     visited = {v: False for v in graph.keys()}
     order = []
 
     for v in graph.keys():
         if not visited[v]:
-            dfs(v, graph, visited, lambda v: order.insert(0, v))
+            dfs2(v, graph, visited, lambda v: order.insert(0, v))
     return order
 
 
