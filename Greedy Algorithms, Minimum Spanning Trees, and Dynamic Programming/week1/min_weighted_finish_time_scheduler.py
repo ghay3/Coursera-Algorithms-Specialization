@@ -9,12 +9,13 @@ class Scheduler:
         self.tasks = sorted(tasks, key=lambda t: t.weight / t.time, reverse=True)
 
     def run(self):
-        t, finish_time_sum = 0, 0
+        t, finish_time_sum, weight_sum = 0, 0, 0
         for task in self.tasks:
             task.func()
             t += task.time
             finish_time_sum += task.weight * t
-        print('weighted finish time:', t)
+            weight_sum += task.weight
+        return finish_time_sum / weight_sum
 
 
 if __name__ == '__main__':
@@ -23,4 +24,4 @@ if __name__ == '__main__':
         Task(weight=2, time=2, func=lambda: print('2')),
         Task(weight=1, time=3, func=lambda: print('3')),
     ]
-    Scheduler(tasks).run()
+    print(Scheduler(tasks).run())
