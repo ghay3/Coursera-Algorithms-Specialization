@@ -127,17 +127,4 @@ if __name__ == '__main__':
     }
     print(minimum_spanning_tree(g))
 
-    with open('test2.txt') as f:
-        g = {}
-        f.readline()
-        for line in f.readlines():
-            v, u, w = line.split()
-            v, u, w = int(v), int(u), int(w)
-            g.setdefault(v, [])
-            g[v].append((v, u, w))
-            g.setdefault(u, [])
-            g[u].append((v, u, w))
-        edges = minimum_spanning_tree(g)
-        print(edges)
-        print(sum([w for u, v, w in edges]))
 
