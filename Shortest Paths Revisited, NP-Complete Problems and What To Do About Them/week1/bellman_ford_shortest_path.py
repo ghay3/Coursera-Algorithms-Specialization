@@ -7,13 +7,13 @@ def shortest_path(graph, source):
     for i in range(len(v2dist)):
         for v, edges in graph.items():
             for u, w in edges:
-                if v2dist[v] > v2dist[u] + w:
-                    v2dist[v] = v2dist[u] + w
+                if v2dist[u] > v2dist[v] + w:
+                    v2dist[u] = v2dist[v] + w
 
     # check negative cycle
     for v, edges in graph.items():
         for u, w in edges:
-            if v2dist[v] > v2dist[u] + w:
+            if v2dist[u] > v2dist[v] + w:
                 return False, None
 
     return True, v2dist
