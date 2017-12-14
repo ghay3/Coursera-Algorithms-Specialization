@@ -1,2 +1,2 @@
 # Coursera-Algorithms-Specialization
-My solutions to [Coursera Algorithms Specialization](https://www.coursera.org/specializations/algorithms).
+Algorithms I implmented in [Coursera Algorithms Specialization](https://www.coursera.org/specializations/algorithms).
